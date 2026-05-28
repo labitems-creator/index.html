@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Labitems Shipping Label&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@page {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>size: 9in 4in;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, Helvetica, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== TOOLBAR ===== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toolbar {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f3f3f3;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toolbar button,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toolbar select,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toolbar input {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 5px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toolbar button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-width: 36px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #999;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toolbar button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e6e6e6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== LABEL ===== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrapper {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 9in;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 4in;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 12px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid #000;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== SCALE CONTAINER ===== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>#scaleContainer {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform-origin: top left;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== LOGO ===== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo-container {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 4mm;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>right: 4mm;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 10;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo-container img {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 20mm;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 20mm;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>object-fit: contain;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid #000;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== EDITABLE AREA ===== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.to-address {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 15px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.25;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px dashed #000;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 6px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-wrap: break-word;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>word-wrap: break-word;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white-space: normal;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>outline: none;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 24mm; /* space for logo */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== FROM ADDRESS ===== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.from-address {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 10px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.15;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== PRINT BUTTON ===== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.print-bar {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.print-btn {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #000;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ===== PRINT ===== */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media print {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>.toolbar,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.print-bar {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ===== TOOLBAR ===== --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="toolbar"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- BOLD --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="execCmd('bold')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;b&gt;B&lt;/b&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ITALIC --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="execCmd('italic')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;i&gt;I&lt;/i&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- UNDERLINE --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="execCmd('underline')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;u&gt;U&lt;/u&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- COLOR --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Color:</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input</p>
+<p class="p1"><span class="Apple-converted-space">        </span>type="color"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>onchange="changeColor(this.value)"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/label&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- FONT SIZE --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Size:</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;select onchange="changeFontSize(this.value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="10px"&gt;10&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="12px"&gt;12&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="14px"&gt;14&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="16px"&gt;16&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="18px"&gt;18&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="20px"&gt;20&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="24px"&gt;24&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="28px"&gt;28&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="32px"&gt;32&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/label&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- FONT FAMILY --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Font:</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;select onchange="changeFont(this.value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Arial"&gt;Arial&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Verdana"&gt;Verdana&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Georgia"&gt;Georgia&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Times New Roman"&gt;Times&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Courier New"&gt;Courier&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/label&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- CLEAR --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="clearFormatting()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Clear</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- WRAP FIT --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="autoFitContent()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Wrap Fit</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ===== LABEL ===== --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wrapper"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- LOGO --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo-container"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img</p>
+<p class="p1"><span class="Apple-converted-space">        </span>src="./labitems-logo.png"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alt="Labitems Logo"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- SCALE CONTAINER --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="scaleContainer"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- TO --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="title"&gt;To&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div</p>
+<p class="p1"><span class="Apple-converted-space">          </span>class="to-address"</p>
+<p class="p1"><span class="Apple-converted-space">          </span>id="editableArea"</p>
+<p class="p1"><span class="Apple-converted-space">          </span>contenteditable="true"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>Customer Name&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>House / Company Name&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Street / Area&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>City – PIN CODE&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>State&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Phone:</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- FROM --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="title"&gt;From&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="from-address"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Yashika Solutions&lt;/strong&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>Plot 41–43, S.No 7/3, Athikulum Village,&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>Uranganpatti, Near Mahia Industrial Estate,&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Madurai, Tamil Nadu – 625020&lt;/strong&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>Ph: +91 880 770 5048 | +91 970 50 26 100&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>080-4763-5168 | +91 93985 49095&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;GSTN:&lt;/strong&gt; 33AYUPR9572N3Z4</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ===== PRINT BUTTON ===== --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="print-bar"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button</p>
+<p class="p1"><span class="Apple-converted-space">      </span>class="print-btn"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>onclick="window.print()"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Print Envelope</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ===== JAVASCRIPT ===== --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== BASIC COMMANDS =====</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function execCmd(command) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.execCommand(</p>
+<p class="p1"><span class="Apple-converted-space">        </span>command,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>false,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>null</p>
+<p class="p1"><span class="Apple-converted-space">      </span>);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== COLOR =====</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function changeColor(color) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.execCommand(</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"styleWithCSS",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>false,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>true</p>
+<p class="p1"><span class="Apple-converted-space">      </span>);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.execCommand(</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"foreColor",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>false,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>color</p>
+<p class="p1"><span class="Apple-converted-space">      </span>);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== FONT FAMILY =====</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function changeFont(font) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>applyStyle({</p>
+<p class="p1"><span class="Apple-converted-space">        </span>fontFamily: font</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== FONT SIZE =====</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function changeFontSize(size) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>applyStyle({</p>
+<p class="p1"><span class="Apple-converted-space">        </span>fontSize: size,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>lineHeight: "1.25"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== APPLY STYLE =====</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function applyStyle(styles) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const selection =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.getSelection();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!selection.rangeCount) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const range =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>selection.getRangeAt(0);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (range.collapsed) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const span =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.createElement("span");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>Object.assign(</p>
+<p class="p1"><span class="Apple-converted-space">        </span>span.style,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>styles</p>
+<p class="p1"><span class="Apple-converted-space">      </span>);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const content =</p>
+<p class="p1"><span class="Apple-converted-space">          </span>range.extractContents();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>span.appendChild(content);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>range.insertNode(span);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>selection.removeAllRanges();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>catch (err) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert(</p>
+<p class="p1"><span class="Apple-converted-space">          </span>"Please select a simpler text portion."</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== CLEAR ALL FORMATTING =====</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function clearFormatting() {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const editor =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(</p>
+<p class="p1"><span class="Apple-converted-space">          </span>"editableArea"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const scaleContainer =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(</p>
+<p class="p1"><span class="Apple-converted-space">          </span>"scaleContainer"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Preserve line breaks</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const lines =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>editor.innerText.split("\n");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Rebuild clean HTML</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>editor.innerHTML =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>lines.join("&lt;br&gt;");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Reset scale</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>scaleContainer.style.transform =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"scale(1)";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== AUTO FIT =====</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function autoFitContent() {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const wrapper =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelector(</p>
+<p class="p1"><span class="Apple-converted-space">          </span>".wrapper"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const scaleContainer =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(</p>
+<p class="p1"><span class="Apple-converted-space">          </span>"scaleContainer"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Reset scale first</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>scaleContainer.style.transform =</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"scale(1)";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>let scale = 1;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Overflow checker</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function isOverflowing() {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">          </span>scaleContainer.getBoundingClientRect().height &gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>wrapper.clientHeight - 10</p>
+<p class="p1"><span class="Apple-converted-space">        </span>);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Gradually shrink</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>while (</p>
+<p class="p1"><span class="Apple-converted-space">        </span>isOverflowing() &amp;&amp;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>scale &gt; 0.4</p>
+<p class="p1"><span class="Apple-converted-space">      </span>) {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>scale -= 0.01;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>scaleContainer.style.transform =</p>
+<p class="p1"><span class="Apple-converted-space">          </span>`scale(${scale})`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
